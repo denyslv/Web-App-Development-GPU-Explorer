@@ -23,6 +23,20 @@
       ]
     },
     {
+      "id": "rtx-30",
+      "name": "NVIDIA GeForce RTX 30 Series",
+      "gpus": [
+        {
+          "id": "rtx-3050",
+          "name": "GeForce RTX 3050",
+          "computePowerTF": 9,
+          "powerWatts": 130,
+          "vramGB": 8,
+          "releaseDate": "2022-01-27"
+        }
+      ]
+    },
+    {
       "id": "rx-7000",
       "name": "AMD Radeon RX 7000 Series",
       "gpus": [
