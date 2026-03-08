@@ -35,7 +35,7 @@ const gpuStore = {
     const stats = {
       totalCategories: categories.length,
       totalGpus: totalGpus,
-      avgComputePowerTF: totalCompute / totalGpus,
+      avgComputePowerTF: Math.round((totalCompute / totalGpus) * 10) / 10,
     };
 
     return stats;
