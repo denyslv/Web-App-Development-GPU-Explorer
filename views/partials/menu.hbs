@@ -1,17 +1,21 @@
 <nav class="ui stackable menu">
   
   <header class="ui header item"> 
-    <!--     Change the link below to suit your app -->
-    <a href="/"> CA1 App </a>
+    <a href="/"> GPU Explorer </a>
   </header>
   
   <div class="right menu">
-    <!--     Add links to your pages here -->
-    
+    <a id="welcome" class="item" href="/">Welcome</a>
+    <a id="dashboard" class="item" href="/dashboard">Dashboard</a>
+    <a id="about" class="item" href="/about">About</a>
   </div>
   
 </nav>
 
 <script>
- document.querySelector("#{{id}}").classList.add("active");
+ // highlight the active menu item
+ const activeItem = document.querySelector("#{{id}}");
+ if (activeItem) {
+   activeItem.classList.add("active");
+ }
 </script>

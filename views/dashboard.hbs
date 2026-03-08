@@ -1,0 +1,30 @@
+{{> menu}}
+
+<section class="ui segment">
+  <h2 class="ui header">Desktop GPU Categories</h2>
+
+  <p>
+    This dashboard shows the main desktop GPU categories in the collection.
+  </p>
+
+  <div class="ui relaxed divided list">
+    {{#each categories}}
+      <div class="item">
+        <div class="content">
+          <div class="header">
+            {{name}}
+          </div>
+          <div class="description">
+            GPUs in this category: {{gpus.length}}
+          </div>
+          <div class="extra">
+            <a class="ui tiny primary button" href="/category/{{id}}">
+              View GPUs
+            </a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>
+

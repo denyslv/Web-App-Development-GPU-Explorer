@@ -1,18 +1,17 @@
 'use strict';
 
 import logger from "../utils/logger.js";
-import appStore from "../models/app-store.js";
 
 const start = {
   createView(request, response) {
     logger.info("Start page loading!");
-    
+
     const viewData = {
-      title: "CA1 Starter App",
-      info: appStore.getAppInfo()
+      title: "GPU Explorer",
+      id: "welcome",
     };
-    
-    response.render('start', viewData);   
+
+    response.render('start', viewData);
   },
 };
 

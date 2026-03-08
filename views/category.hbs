@@ -1,0 +1,35 @@
+{{> menu}}
+
+<section class="ui segment">
+  <h2 class="ui header">{{category.name}}</h2>
+
+  <p>
+    Desktop GPUs in this category.
+  </p>
+
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Compute Power (TF)</th>
+        <th>Power (W)</th>
+        <th>VRAM (GB)</th>
+        <th>Release Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each gpus}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{computePowerTF}}</td>
+          <td>{{powerWatts}}</td>
+          <td>{{vramGB}}</td>
+          <td>{{releaseDate}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <a class="ui button" href="/dashboard">Back to dashboard</a>
+</section>
+
