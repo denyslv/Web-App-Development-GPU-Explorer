@@ -33,6 +33,14 @@
           "powerWatts": 130,
           "vramGB": 8,
           "releaseDate": "2022-01-27"
+        },
+        {
+          "id": "rtx-3050-ti-m",
+          "name": "GeForce RTX 3050 Ti Mobile",
+          "computePowerTF": 5.3,
+          "powerWatts": 75,  
+          "vramGB": 4,
+          "releaseDate": "2021-05-11"
         }
       ]
     },
