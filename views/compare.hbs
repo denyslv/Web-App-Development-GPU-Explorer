@@ -1,0 +1,183 @@
+{{> menu}}
+
+<section class="ui segment">
+  <h2 class="ui header">Compare GPUs</h2>
+  <p>Select two GPUs and compare them side by side.</p>
+
+  <form class="ui form" action="/compare" method="GET">
+    <div class="two fields">
+      <div class="field">
+        <label>GPU A</label>
+        <select name="gpuA" class="ui dropdown" required>
+          {{#each gpuOptions}}
+            <option value="{{key}}" {{#ifEquals ../selectedGpuAKey key}}selected{{/ifEquals}}>
+              {{categoryName}} - {{gpu.name}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field">
+        <label>GPU B</label>
+        <select name="gpuB" class="ui dropdown" required>
+          {{#each gpuOptions}}
+            <option value="{{key}}" {{#ifEquals ../selectedGpuBKey key}}selected{{/ifEquals}}>
+              {{categoryName}} - {{gpu.name}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <button class="ui primary button" type="submit">Compare</button>
+  </form>
+
+  {{#if canCompare}}
+    <h3 class="ui dividing header" style="margin-top: 1.5rem;">Side-by-Side Comparison</h3>
+    <table class="ui celled table">
+      <thead>
+        <tr>
+          <th>Spec</th>
+          <th>{{selectedGpuA.gpu.name}}</th>
+          <th>{{selectedGpuB.gpu.name}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Category</td>
+          <td>{{selectedGpuA.categoryName}}</td>
+          <td>{{selectedGpuB.categoryName}}</td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{selectedGpuA.gpu.name}}</td>
+          <td>{{selectedGpuB.gpu.name}}</td>
+        </tr>
+        <tr>
+          <td>Release Date</td>
+          <td>{{selectedGpuA.gpu.releaseDate}}</td>
+          <td>{{selectedGpuB.gpu.releaseDate}}</td>
+        </tr>
+        <tr>
+          <td>Compute Power (TF)</td>
+          <td>{{selectedGpuA.gpu.computePowerTF}}</td>
+          <td>{{selectedGpuB.gpu.computePowerTF}}</td>
+        </tr>
+        <tr>
+          <td>Power (W)</td>
+          <td>{{selectedGpuA.gpu.powerWatts}}</td>
+          <td>{{selectedGpuB.gpu.powerWatts}}</td>
+        </tr>
+        <tr>
+          <td>VRAM (GB)</td>
+          <td>{{selectedGpuA.gpu.vramGB}}</td>
+          <td>{{selectedGpuB.gpu.vramGB}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="ui dividing header">Numeric Spec Charts</h3>
+    <div class="ui stackable grid">
+      <div class="eight wide column">
+        <div class="ui segment">
+          <h4 class="ui header">Compute Power (TF)</h4>
+          <canvas id="computeChart"></canvas>
+        </div>
+      </div>
+      <div class="eight wide column">
+        <div class="ui segment">
+          <h4 class="ui header">Power (W)</h4>
+          <canvas id="powerChart"></canvas>
+        </div>
+      </div>
+      <div class="eight wide column">
+        <div class="ui segment">
+          <h4 class="ui header">VRAM (GB)</h4>
+          <canvas id="vramChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const gpuALabel = "{{selectedGpuA.gpu.name}}";
+      const gpuBLabel = "{{selectedGpuB.gpu.name}}";
+
+      function renderSpecChart(canvasId, specLabel, valueA, valueB, yTickStepSize) {
+        const context = document.getElementById(canvasId);
+        if (!context) return;
+
+        new Chart(context, {
+          type: "bar",
+          data: {
+            labels: [gpuALabel, gpuBLabel],
+            datasets: [{
+              label: specLabel,
+              data: [valueA, valueB],
+              backgroundColor: ["#2185d0", "#21ba45"],
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                display: false
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  stepSize: yTickStepSize
+                },
+                afterBuildTicks(scale) {
+                  const datasetValues = (scale.chart.data.datasets[0]?.data || [])
+                    .map(Number)
+                    .filter((value) => Number.isFinite(value));
+
+                  if (datasetValues.length === 0) {
+                    return;
+                  }
+
+                  const customValues = [...new Set(datasetValues)];
+                  let tickValues = scale.ticks.map((tick) => tick.value);
+
+                  customValues.forEach((customValue) => {
+                    if (tickValues.includes(customValue) || tickValues.length === 0) {
+                      return;
+                    }
+
+                    let closestIndex = 0;
+                    let closestDistance = Math.abs(tickValues[0] - customValue);
+
+                    for (let i = 1; i < tickValues.length; i += 1) {
+                      const distance = Math.abs(tickValues[i] - customValue);
+                      if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestIndex = i;
+                      }
+                    }
+
+                    tickValues.splice(closestIndex, 1, customValue);
+                  });
+
+                  tickValues = [...new Set(tickValues)].sort((a, b) => a - b);
+                  scale.ticks = tickValues.map((value) => ({ value }));
+                }
+              }
+            }
+          }
+        });
+      }
+
+      renderSpecChart("computeChart", "Compute Power (TF)", {{selectedGpuA.gpu.computePowerTF}}, {{selectedGpuB.gpu.computePowerTF}});
+      renderSpecChart("powerChart", "Power (W)", {{selectedGpuA.gpu.powerWatts}}, {{selectedGpuB.gpu.powerWatts}});
+      const vramA = {{selectedGpuA.gpu.vramGB}};
+      const vramB = {{selectedGpuB.gpu.vramGB}};
+      const vramTickStep = (vramA < 4 || vramB < 4) ? 1 : 4;
+      renderSpecChart("vramChart", "VRAM (GB)", vramA, vramB, vramTickStep);
+    </script>
+  {{else}}
+    <div class="ui warning message" style="margin-top: 1.5rem;">
+      At least two accessible GPUs are required to run a comparison.
+    </div>
+  {{/if}}
+</section>

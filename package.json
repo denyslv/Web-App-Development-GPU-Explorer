@@ -12,12 +12,15 @@
     "express"
   ],
   "dependencies": {
+    "body-parser": "^2.2.2",
+    "cookie-parser": "^1.4.7",
     "express": "^5.2.1",
     "express-handlebars": "^8.0.4",
     "lowdb": "^7.0.1",
+    "uuid": "^14.0.0",
     "winston": "^3.19.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.14"
   }
 }

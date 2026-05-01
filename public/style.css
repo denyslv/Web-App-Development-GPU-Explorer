@@ -12,3 +12,11 @@ body {
   margin: 2em;
   background-color: lightgrey;
 }
+
+.name {
+  padding-top: 22.5px;
+  padding-right: 5px;
+  line-height: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}

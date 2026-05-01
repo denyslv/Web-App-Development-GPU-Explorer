@@ -1,6 +1,7 @@
 {
   "categories": [
     {
+      "isDefault": true,
       "id": "rtx-40",
       "name": "NVIDIA GeForce RTX 40 Series",
       "gpus": [
@@ -23,6 +24,7 @@
       ]
     },
     {
+      "isDefault": true,
       "id": "rtx-30",
       "name": "NVIDIA GeForce RTX 30 Series",
       "gpus": [
@@ -38,13 +40,14 @@
           "id": "rtx-3050-ti-m",
           "name": "GeForce RTX 3050 Ti Mobile",
           "computePowerTF": 5.3,
-          "powerWatts": 75,  
+          "powerWatts": 75,
           "vramGB": 4,
           "releaseDate": "2021-05-11"
         }
       ]
     },
     {
+      "isDefault": true,
       "id": "rx-7000",
       "name": "AMD Radeon RX 7000 Series",
       "gpus": [
@@ -63,6 +66,22 @@
           "powerWatts": 263,
           "vramGB": 16,
           "releaseDate": "2023-09-06"
+        }
+      ]
+    },
+    {
+      "userid": "346a7f2a-4bc0-40a6-abda-c81ea36e3a91",
+      "isDefault": false,
+      "id": "nvidia-geforce-rtx-50-series-1777577026167-153",
+      "name": "NVIDIA GeForce RTX 50 Series",
+      "gpus": [
+        {
+          "id": "geforce-rtx-5080-1777577059150-960",
+          "name": "GeForce RTX 5080",
+          "computePowerTF": 80,
+          "powerWatts": 390,
+          "vramGB": 16,
+          "releaseDate": "0008-08-20"
         }
       ]
     }

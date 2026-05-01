@@ -4,27 +4,57 @@
   <h2 class="ui header">Desktop GPU Categories</h2>
 
   <p>
-    This dashboard shows the main desktop GPU categories in the collection.
+    Browse categories, then use search and sorting to find the right one faster.
   </p>
 
-  <div class="ui relaxed divided list">
+  <form class="ui form" action="/dashboard" method="GET">
+    <div class="fields">
+      <div class="eight wide field">
+        <label>Search categories</label>
+        <input type="text" name="search" placeholder="Search by category name" value="{{search}}">
+      </div>
+      <div class="five wide field">
+        <label>Sort</label>
+        <select name="sort" class="ui dropdown">
+          <option value="none">No sort</option>
+          <option value="avgComputeAsc" {{#if sortAvgComputeAsc}}selected{{/if}}>Avg Compute TF (Low to High)</option>
+          <option value="avgComputeDesc" {{#if sortAvgComputeDesc}}selected{{/if}}>Avg Compute TF (High to Low)</option>
+        </select>
+      </div>
+      <div class="three wide field" style="display: flex; align-items: flex-end;">
+        <button class="ui primary button" type="submit">Apply</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="ui stackable two cards" style="margin-top: 1.25rem;">
     {{#each categories}}
-      <div class="item">
+      <div class="card">
         <div class="content">
-          <div class="header">
-            {{name}}
+          <div class="header">{{name}}</div>
+          <div style="margin-top: 0.75rem;">
+            {{#unless isDefault}}
+              <span class="ui small grey label">Custom</span>
+            {{/unless}}
+            <span class="ui small label">
+              {{gpus.length}} items
+            </span>
+            <span class="ui small label">
+              Avg TF power: {{avgComputePowerTF}}
+            </span>
           </div>
-          <div class="description">
-            GPUs in this category: {{gpus.length}}
-          </div>
-          <div class="extra">
-            <a class="ui tiny primary button" href="/category/{{id}}">
-              View GPUs
-            </a>
+
+          <div style="margin-top: 1rem;">
+            <a class="ui tiny primary button" href="/category/{{id}}">View GPUs</a>
           </div>
         </div>
       </div>
     {{/each}}
+  </div>
+
+  <div style="margin-top: 2rem;">
+    <h3 class="ui dividing header">Create Your Own Category</h3>
+    {{> addcategory}}
   </div>
 </section>
 
