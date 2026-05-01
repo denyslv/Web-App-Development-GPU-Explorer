@@ -1,6 +1,7 @@
 # GPU Explorer
 
 A modern web app for browsing, comparing, and managing GPU collections, built with **Node.js**, **Express**, and **Handlebars**.
+[Web App Link](https://wad-ca1-dl.onrender.com/)
 
 ## Features
 - **User Authentication**: Sign up, log in, and log out using cookie-based session handling.
