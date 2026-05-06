@@ -51,8 +51,9 @@ const dashboard = {
       return;
     }
     const name = (request.body.name || '').trim();
-    if (name) {
-      await gpuStore.addCategory(name, loggedInUser.id);
+    const picture = request.files?.picture;
+    if (name && picture) {
+      await gpuStore.addCategory(name, loggedInUser.id, picture);
     }
     response.redirect('/dashboard');
   },
@@ -64,6 +65,7 @@ const dashboard = {
       response.redirect('/');
       return;
     }
+    logger.info(`Deleting category ${request.params.id} by user ${loggedInUser.email}`);
     await gpuStore.deleteCategory(request.params.id);
     response.redirect('/dashboard');
   },

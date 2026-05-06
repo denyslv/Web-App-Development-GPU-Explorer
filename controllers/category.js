@@ -104,6 +104,7 @@ const category = {
       return;
     }
 
+    logger.info(`Deleting GPU ${gpuId} from category ${categoryId} by user ${loggedInUser.email}`);
     await gpuStore.deleteGpuFromCategory(categoryId, gpuId);
     response.redirect(`/category/${categoryId}`);
   },

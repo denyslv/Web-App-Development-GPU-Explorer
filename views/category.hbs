@@ -15,6 +15,9 @@
         <th>Power (W)</th>
         <th>VRAM (GB)</th>
         <th>Release Date</th>
+        {{#if canEditCategory}}
+          <th>Actions</th>
+        {{/if}}
       </tr>
     </thead>
     <tbody>
@@ -25,6 +28,13 @@
           <td>{{powerWatts}}</td>
           <td>{{vramGB}}</td>
           <td>{{releaseDate}}</td>
+          {{#if ../canEditCategory}}
+            <td>
+              <form action="/category/{{../category.id}}/gpu/{{id}}/delete" method="POST">
+                <button class="ui tiny red button" type="submit">Delete GPU</button>
+              </form>
+            </td>
+          {{/if}}
         </tr>
       {{/each}}
     </tbody>

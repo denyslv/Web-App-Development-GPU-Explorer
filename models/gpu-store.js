@@ -110,7 +110,7 @@ const gpuStore = {
     return Math.round((total / category.gpus.length) * 10) / 10;
   },
 
-  async addCategory(name, userId) {
+  async addCategory(name, userId, file) {
     const category = {
       userid: userId,
       isDefault: false,
@@ -118,6 +118,11 @@ const gpuStore = {
       name: name.trim(),
       gpus: [],
     };
+
+    if (file) {
+      category.picture = await this.store.addToCloudinary(file);
+    }
+
     await this.store.addCollection(this.collection, category);
     return category;
   },
@@ -126,6 +131,13 @@ const gpuStore = {
     const category = this.getCategoryById(categoryId);
     if (!category) {
       return false;
+    }
+    if (category.picture && category.picture.public_id) {
+      try {
+        await this.store.deleteFromCloudinary(category.picture.public_id);
+      } catch (err) {
+        // keep deleting local category even if cloud cleanup fails
+      }
     }
     await this.store.removeCollection(this.collection, category);
     return true;

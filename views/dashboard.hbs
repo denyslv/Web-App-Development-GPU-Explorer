@@ -30,6 +30,11 @@
   <div class="ui stackable two cards" style="margin-top: 1.25rem;">
     {{#each categories}}
       <div class="card">
+        {{#if picture.url}}
+          <div class="image">
+            <img src="{{picture.url}}" alt="{{name}} image">
+          </div>
+        {{/if}}
         <div class="content">
           <div class="header">{{name}}</div>
           <div style="margin-top: 0.75rem;">
@@ -46,6 +51,11 @@
 
           <div style="margin-top: 1rem;">
             <a class="ui tiny primary button" href="/category/{{id}}">View GPUs</a>
+            {{#unless isDefault}}
+              <form action="/dashboard/category/{{id}}/delete" method="POST" style="display: inline;">
+                <button class="ui tiny red button" type="submit">Delete Category</button>
+              </form>
+            {{/unless}}
           </div>
         </div>
       </div>

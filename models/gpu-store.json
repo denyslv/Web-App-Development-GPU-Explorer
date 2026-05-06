@@ -4,6 +4,9 @@
       "isDefault": true,
       "id": "rtx-40",
       "name": "NVIDIA GeForce RTX 40 Series",
+      "picture": {
+        "url": "https://res.cloudinary.com/dwpyafs6g/image/upload/v1778085889/4080-back-bg_svwvcl.png"
+      },
       "gpus": [
         {
           "id": "rtx-4090",
@@ -20,6 +23,70 @@
           "powerWatts": 320,
           "vramGB": 16,
           "releaseDate": "2022-11-16"
+        },
+        {
+          "id": "rtx-4080-super",
+          "name": "GeForce RTX 4080 SUPER",
+          "computePowerTF": 52.2,
+          "powerWatts": 320,
+          "vramGB": 16,
+          "releaseDate": "2024-01-31"
+        },
+        {
+          "id": "rtx-4070-ti-super",
+          "name": "GeForce RTX 4070 Ti SUPER",
+          "computePowerTF": 44.1,
+          "powerWatts": 285,
+          "vramGB": 16,
+          "releaseDate": "2024-01-24"
+        },
+        {
+          "id": "rtx-4070-ti",
+          "name": "GeForce RTX 4070 Ti",
+          "computePowerTF": 40.1,
+          "powerWatts": 285,
+          "vramGB": 12,
+          "releaseDate": "2023-01-05"
+        },
+        {
+          "id": "rtx-4070-super",
+          "name": "GeForce RTX 4070 SUPER",
+          "computePowerTF": 35.5,
+          "powerWatts": 220,
+          "vramGB": 12,
+          "releaseDate": "2024-01-17"
+        },
+        {
+          "id": "rtx-4070",
+          "name": "GeForce RTX 4070",
+          "computePowerTF": 29.1,
+          "powerWatts": 200,
+          "vramGB": 12,
+          "releaseDate": "2023-04-13"
+        },
+        {
+          "id": "rtx-4060-ti-16gb",
+          "name": "GeForce RTX 4060 Ti 16GB",
+          "computePowerTF": 22.1,
+          "powerWatts": 165,
+          "vramGB": 16,
+          "releaseDate": "2023-07-18"
+        },
+        {
+          "id": "rtx-4060-ti-8gb",
+          "name": "GeForce RTX 4060 Ti 8GB",
+          "computePowerTF": 22.1,
+          "powerWatts": 160,
+          "vramGB": 8,
+          "releaseDate": "2023-05-24"
+        },
+        {
+          "id": "rtx-4060",
+          "name": "GeForce RTX 4060",
+          "computePowerTF": 15.1,
+          "powerWatts": 115,
+          "vramGB": 8,
+          "releaseDate": "2023-06-29"
         }
       ]
     },
@@ -27,7 +94,90 @@
       "isDefault": true,
       "id": "rtx-30",
       "name": "NVIDIA GeForce RTX 30 Series",
+      "picture": {
+        "url": "https://res.cloudinary.com/dwpyafs6g/image/upload/v1778083914/3080-front_qkha8d.png"
+      },
       "gpus": [
+        {
+          "id": "rtx-3090-ti",
+          "name": "GeForce RTX 3090 Ti",
+          "computePowerTF": 40.0,
+          "powerWatts": 450,
+          "vramGB": 24,
+          "releaseDate": "2022-03-29"
+        },
+        {
+          "id": "rtx-3090",
+          "name": "GeForce RTX 3090",
+          "computePowerTF": 35.6,
+          "powerWatts": 350,
+          "vramGB": 24,
+          "releaseDate": "2020-09-24"
+        },
+        {
+          "id": "rtx-3080-ti",
+          "name": "GeForce RTX 3080 Ti",
+          "computePowerTF": 34.1,
+          "powerWatts": 350,
+          "vramGB": 12,
+          "releaseDate": "2021-06-03"
+        },
+        {
+          "id": "rtx-3080-12gb",
+          "name": "GeForce RTX 3080 12GB",
+          "computePowerTF": 30.6,
+          "powerWatts": 350,
+          "vramGB": 12,
+          "releaseDate": "2022-01-11"
+        },
+        {
+          "id": "rtx-3080-10gb",
+          "name": "GeForce RTX 3080 10GB",
+          "computePowerTF": 29.8,
+          "powerWatts": 320,
+          "vramGB": 10,
+          "releaseDate": "2020-09-17"
+        },
+        {
+          "id": "rtx-3070-ti",
+          "name": "GeForce RTX 3070 Ti",
+          "computePowerTF": 21.7,
+          "powerWatts": 290,
+          "vramGB": 8,
+          "releaseDate": "2021-06-10"
+        },
+        {
+          "id": "rtx-3070",
+          "name": "GeForce RTX 3070",
+          "computePowerTF": 20.3,
+          "powerWatts": 220,
+          "vramGB": 8,
+          "releaseDate": "2020-10-29"
+        },
+        {
+          "id": "rtx-3060-ti",
+          "name": "GeForce RTX 3060 Ti",
+          "computePowerTF": 16.2,
+          "powerWatts": 200,
+          "vramGB": 8,
+          "releaseDate": "2020-12-02"
+        },
+        {
+          "id": "rtx-3060-12gb",
+          "name": "GeForce RTX 3060 12GB",
+          "computePowerTF": 12.7,
+          "powerWatts": 170,
+          "vramGB": 12,
+          "releaseDate": "2021-02-25"
+        },
+        {
+          "id": "rtx-3060-8gb",
+          "name": "GeForce RTX 3060 8GB",
+          "computePowerTF": 12.7,
+          "powerWatts": 170,
+          "vramGB": 8,
+          "releaseDate": "2022-12-07"
+        },
         {
           "id": "rtx-3050",
           "name": "GeForce RTX 3050",
@@ -35,14 +185,6 @@
           "powerWatts": 130,
           "vramGB": 8,
           "releaseDate": "2022-01-27"
-        },
-        {
-          "id": "rtx-3050-ti-m",
-          "name": "GeForce RTX 3050 Ti Mobile",
-          "computePowerTF": 5.3,
-          "powerWatts": 75,
-          "vramGB": 4,
-          "releaseDate": "2021-05-11"
         }
       ]
     },
@@ -50,6 +192,9 @@
       "isDefault": true,
       "id": "rx-7000",
       "name": "AMD Radeon RX 7000 Series",
+      "picture": {
+        "url": "https://res.cloudinary.com/dwpyafs6g/image/upload/v1778085762/RX7900XT_crop_mop6hf.png"
+      },
       "gpus": [
         {
           "id": "rx-7900-xtx",
@@ -60,12 +205,52 @@
           "releaseDate": "2022-12-13"
         },
         {
+          "id": "rx-7900-xt",
+          "name": "Radeon RX 7900 XT",
+          "computePowerTF": 51.5,
+          "powerWatts": 315,
+          "vramGB": 20,
+          "releaseDate": "2022-12-13"
+        },
+        {
+          "id": "rx-7900-gre",
+          "name": "Radeon RX 7900 GRE",
+          "computePowerTF": 45.0,
+          "powerWatts": 260,
+          "vramGB": 16,
+          "releaseDate": "2024-02-27"
+        },
+        {
           "id": "rx-7800-xt",
           "name": "Radeon RX 7800 XT",
           "computePowerTF": 37.3,
           "powerWatts": 263,
           "vramGB": 16,
           "releaseDate": "2023-09-06"
+        },
+        {
+          "id": "rx-7700-xt",
+          "name": "Radeon RX 7700 XT",
+          "computePowerTF": 35.2,
+          "powerWatts": 245,
+          "vramGB": 12,
+          "releaseDate": "2023-09-06"
+        },
+        {
+          "id": "rx-7600-xt",
+          "name": "Radeon RX 7600 XT",
+          "computePowerTF": 22.6,
+          "powerWatts": 190,
+          "vramGB": 16,
+          "releaseDate": "2024-01-24"
+        },
+        {
+          "id": "rx-7600",
+          "name": "Radeon RX 7600",
+          "computePowerTF": 21.8,
+          "powerWatts": 165,
+          "vramGB": 8,
+          "releaseDate": "2023-05-25"
         }
       ]
     },
@@ -74,6 +259,9 @@
       "isDefault": false,
       "id": "nvidia-geforce-rtx-50-series-1777577026167-153",
       "name": "NVIDIA GeForce RTX 50 Series",
+      "picture": {
+        "url": "https://res.cloudinary.com/dwpyafs6g/image/upload/v1778083915/5080-Front_jeyyxu.png"
+      },
       "gpus": [
         {
           "id": "geforce-rtx-5080-1777577059150-960",
