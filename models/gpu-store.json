@@ -101,7 +101,7 @@
         {
           "id": "rtx-3090-ti",
           "name": "GeForce RTX 3090 Ti",
-          "computePowerTF": 40.0,
+          "computePowerTF": 40,
           "powerWatts": 450,
           "vramGB": 24,
           "releaseDate": "2022-03-29"
@@ -215,7 +215,7 @@
         {
           "id": "rx-7900-gre",
           "name": "Radeon RX 7900 GRE",
-          "computePowerTF": 45.0,
+          "computePowerTF": 45,
           "powerWatts": 260,
           "vramGB": 16,
           "releaseDate": "2024-02-27"

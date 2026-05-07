@@ -15,6 +15,8 @@ const compare = {
     logger.info('Compare page loading');
 
     const gpuOptions = gpuStore.getVisibleGpuOptions(loggedInUser.id);
+
+    //If user has selected use them, otherwise use [0] and [1]
     const selectedGpuAKey = request.query.gpuA || (gpuOptions[0] ? gpuOptions[0].key : '');
     const selectedGpuBKey = request.query.gpuB || (gpuOptions[1] ? gpuOptions[1].key : selectedGpuAKey);
 

@@ -172,6 +172,7 @@
       renderSpecChart("powerChart", "Power (W)", {{selectedGpuA.gpu.powerWatts}}, {{selectedGpuB.gpu.powerWatts}});
       const vramA = {{selectedGpuA.gpu.vramGB}};
       const vramB = {{selectedGpuB.gpu.vramGB}};
+      //if vram is less than 4, than 1 otherwise 4
       const vramTickStep = (vramA < 4 || vramB < 4) ? 1 : 4;
       renderSpecChart("vramChart", "VRAM (GB)", vramA, vramB, vramTickStep);
     </script>
